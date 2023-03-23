@@ -9,6 +9,7 @@ import { VerPaisComponent } from './pages/ver-pais/ver-pais.component';
 import { RouterModule } from '@angular/router';
 import { PaisTablaComponent } from './components/pais-tabla/pais-tabla.component';
 import { PaisInputComponent } from './components/pais-input/pais-input.component';
+import { NgxJsonViewerModule } from 'ngx-json-viewer';
 
 
 
@@ -31,7 +32,8 @@ import { PaisInputComponent } from './components/pais-input/pais-input.component
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    NgxJsonViewerModule
   ]
 })
 export class PaisModule { }
