@@ -1,43 +1,39 @@
-import {NgModule} from '@angular/core'
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { PorPaisComponent } from './pais/pages/por-pais/por-pais.component';
-import { PorRegionComponent } from './pais/pages/por-region/por-region.component';
-import { PorCapitalComponent } from './pais/pages/por-capital/por-capital.component';
-import { VerPaisComponent } from './pais/pages/ver-pais/ver-pais.component';
-
+import { AboutPageComponent } from './shared/pages/about-page/about-page.component';
+import { ContactPageComponent } from './shared/pages/contact-page/contact-page.component';
+import { HomePageComponent } from './shared/pages/home-page/home-page.component';
 
 const routes: Routes = [
+  // {
+  //   path: '',
+  //   component: HomePageComponent,
+  // },
   {
-    path: '',
-    component: PorPaisComponent,
-    pathMatch: 'full'
+    path: 'about',
+    component: AboutPageComponent
   },
   {
-    path: 'region',
-    component: PorRegionComponent,
+    path: 'contact',
+    component: ContactPageComponent
   },
   {
-    path: 'capital',
-    component: PorCapitalComponent,
-  },
-  {
-    path: 'pais/:id',
-    component: VerPaisComponent,
+    path: 'countries',
+    loadChildren: () => import('./countries/countries.module').then( m => m.CountriesModule )
   },
   {
     path: '**',
-    redirectTo: ''
+    redirectTo: 'countries'
   }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot( routes)
+    RouterModule.forRoot( routes ),
   ],
   exports: [
-    RouterModule
-  ],
-
+    RouterModule,
+  ]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
